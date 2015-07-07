@@ -1,12 +1,19 @@
 import time
 import serial
 
-ser = serial.serial("[port connection number]",9600)
-f = open("[file location.txt]", "r") #If not work you can try to change r in to rb
+counter = ''
+ser = serial.Serial("COM3",9600)
+f = open("C:\\Users\\Eve\\Desktop\\BINARY_3Dd.txt", 'r') #If not work you can try to change r in to rb
 
 try:
-	ser = f.read(1)
-	while ser != "";
-	ser = f.read(1)
+	counter = f.read(1)
+	ser.write(counter)
+	print(counter)
+	time.sleep(0.5)
+	while ser != " ":
+		counter = f.read(1)
+		ser.write(counter)
+		print(counter)
+		time.sleep(0.5)
 finally:
 	f.close()
